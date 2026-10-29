@@ -81,6 +81,10 @@ export const BookingForm: React.FC = () => {
   };
 
   const bookingTypes = [
+    "Karnataka Tour",
+    "Kerala Tour",
+    "Tamil Nadu Tour",
+    "Pondicherry Tour",
     "Car Rental",
     "Tempo Traveller",
     "Force Urbania",

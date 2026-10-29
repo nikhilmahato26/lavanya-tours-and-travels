@@ -188,16 +188,25 @@ export const Footer: React.FC = () => {
           {/* Col 5: Popular Destinations */}
           <div>
             <h4 className="font-heading font-bold text-sm tracking-wider uppercase text-white mb-4 border-l-2 border-brand-orange pl-2.5">
-              Destinations
+              Tour Packages
             </h4>
             <ul className="space-y-2 text-sm text-gray-300">
-              {['Mysore', 'Coorg', 'Mangalore', 'Ooty', 'Kodaikanal', 'Madurai', 'Coimbatore'].map((dest) => (
-                <li key={dest}>
+              {[
+                { label: 'Mysore Heritage Tour', val: 'Mysore Heritage Tour Package' },
+                { label: 'Coorg Coffee & Falls Tour', val: 'Coorg Tour Package' },
+                { label: 'Chikmagalur Peaks Tour', val: 'Chikmagalur Tour Package' },
+                { label: 'Kerala & Munnar Tour', val: 'Best of Kerala Tour Package' },
+                { label: 'Wayanad Nature Escape', val: 'Wayanad Escape Tour Package' },
+                { label: 'Ooty & Nilgiri Tour', val: 'Ooty & Coonoor Hill Station Tour' },
+                { label: 'Kodaikanal Hill Tour', val: 'Kodaikanal Princess of Hills Tour' },
+                { label: 'Pondicherry French Tour', val: 'Pondicherry French Heritage Tour' },
+              ].map((dest) => (
+                <li key={dest.val}>
                   <button
-                    onClick={() => scrollToSection('booking-form', { destination: dest })}
-                    className="hover:text-brand-gold transition-colors text-left"
+                    onClick={() => scrollToSection('booking-form', { destination: dest.val })}
+                    className="hover:text-brand-gold transition-colors text-left text-xs"
                   >
-                    {dest} Tour
+                    {dest.label}
                   </button>
                 </li>
               ))}
