@@ -48,7 +48,13 @@ export const BookingForm: React.FC = () => {
     const handlePrefill = (e: any) => {
       const detail = e.detail;
       if (detail) {
-        if (detail.vehicle) setValue('vehicle', detail.vehicle);
+        if (detail.vehicle) {
+          let v = detail.vehicle;
+          if (v === 'Toyota Etios' || v.includes('Etios') || v.includes('Sedan')) {
+            v = 'Toyota Etios (Sedan)';
+          }
+          setValue('vehicle', v);
+        }
         if (detail.destination) setValue('destination', detail.destination);
         if (detail.bookingType) setValue('bookingType', detail.bookingType);
       }
@@ -95,16 +101,16 @@ export const BookingForm: React.FC = () => {
   ];
 
   const vehicles = [
-    "Toyota Etios",
-    "Toyota Innova",
-    "Toyota Innova Crysta",
-    "Tempo Traveller",
-    "Force Urbania — 12 Seater",
-    "Force Urbania — up to 16 Seater",
-    "21-Seater Bus",
-    "Bus — up to 49 Seats",
-    "Volvo Bus",
-    "Any Available Vehicle",
+    { value: "Toyota Etios (Sedan)", label: "Sedan (Etios) — ₹12/km | ₹3,300/day" },
+    { value: "Toyota Innova", label: "Toyota Innova — ₹15/km | ₹4,900/day" },
+    { value: "Toyota Innova Crysta", label: "Toyota Innova Crysta — ₹18/km | ₹5,200/day" },
+    { value: "Tempo Traveller", label: "Tempo Traveller — ₹22/km | ₹6,500/day" },
+    { value: "Force Urbania — 12 Seater", label: "Force Urbania (12 Seater) — ₹40/km | ₹12,700/day" },
+    { value: "Force Urbania — up to 16 Seater", label: "Force Urbania (16 Seater) — ₹40/km | ₹12,700/day" },
+    { value: "21-Seater Bus", label: "21-Seater Bus — On Enquiry" },
+    { value: "Bus — up to 49 Seats", label: "Bus (up to 49 Seats) — On Enquiry" },
+    { value: "Volvo Bus", label: "Volvo Bus — On Enquiry" },
+    { value: "Any Available Vehicle", label: "Any Available Vehicle" },
   ];
 
   return (
@@ -299,7 +305,7 @@ export const BookingForm: React.FC = () => {
                     className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 text-sm focus:border-brand-blue focus:outline-none bg-white cursor-pointer"
                   >
                     {vehicles.map((v) => (
-                      <option key={v} value={v}>{v}</option>
+                      <option key={v.value} value={v.value}>{v.label}</option>
                     ))}
                   </select>
                 </div>
@@ -335,15 +341,28 @@ export const BookingForm: React.FC = () => {
             </div>
 
             {/* Important Disclaimer Banner */}
-            <div className="bg-brand-surface p-3.5 rounded-xl border border-gray-200 text-xs text-gray-600 flex items-start gap-2.5">
-              <Info className="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-brand-navy">Booking & Air Conditioning Terms:</p>
-                <p className="text-gray-500 mt-0.5">{BUSINESS_CONFIG.disclaimers.acPolicy}</p>
-                <p className="text-gray-400 mt-0.5 italic">
-                  Note: Submitting this form generates an enquiry to discuss dates and vehicle availability. Final confirmation and pricing require verification with Lavanya Tours & Travels.
-                </p>
+            <div className="bg-brand-surface p-4 rounded-xl border border-gray-200 text-xs text-gray-600 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+              <div className="flex items-start gap-2.5">
+                <Info className="w-4 h-4 text-brand-blue flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-brand-navy">Booking & Pricing Policy:</p>
+                  <p className="text-gray-500 mt-0.5">{BUSINESS_CONFIG.disclaimers.acPolicy}</p>
+                  <p className="text-amber-800 font-medium mt-1">
+                    * Toll, parking, and state permit/tax extra on all vehicle hires.
+                  </p>
+                </div>
               </div>
+              <a
+                href="#payment-details"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('payment-details')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="inline-flex items-center gap-1 text-xs font-bold text-brand-blue hover:text-brand-orange bg-white px-3 py-1.5 rounded-lg border border-gray-200 shadow-sm whitespace-nowrap"
+              >
+                <span>Bank & UPI QR</span>
+                <span>➔</span>
+              </a>
             </div>
 
             {/* Submit Button */}

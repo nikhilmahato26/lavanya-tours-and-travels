@@ -21,11 +21,11 @@ export const Navbar: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
+    { name: 'About', href: '#about' },
     { name: 'Our Fleet', href: '#fleet' },
-    { name: 'Tour Packages', href: '#tour-packages' },
+    { name: 'Tours', href: '#tour-packages' },
     { name: 'Bus Rentals', href: '#bus-rentals' },
-    { name: 'Services', href: '#services' },
+    { name: 'Pay Online', href: '#payment-details' },
     { name: 'Contact', href: '#contact' },
   ];
 

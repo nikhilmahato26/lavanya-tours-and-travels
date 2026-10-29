@@ -12,7 +12,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "car-rental",
     title: "Car Rental",
-    description: "Enquire about Toyota Etios, Toyota Innova, and Innova Crysta.",
+    description: "Sedans from ₹12/km, Innova from ₹15/km, and Crysta from ₹18/km for outstation & city trips.",
     ctaText: "Enquire About Cars",
     vehicleType: "Toyota Innova Crysta",
     bookingType: "Car Rental",
@@ -21,7 +21,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "tempo-traveller-rental",
     title: "Tempo Traveller Rental",
-    description: "Explore group transportation options with Tempo Traveller.",
+    description: "Group transportation from ₹22/km with 12 to 17 seating capacity for tours and events.",
     ctaText: "Enquire About Tempo Traveller",
     vehicleType: "Tempo Traveller",
     bookingType: "Tempo Traveller",
@@ -30,7 +30,7 @@ export const SERVICES: ServiceItem[] = [
   {
     id: "force-urbania-rental",
     title: "Force Urbania Rental",
-    description: "Enquire about Force Urbania vehicles for 12 to 16 passengers.",
+    description: "Luxury group travel at ₹40/km with premium executive comfort for 12 to 16 passengers.",
     ctaText: "Enquire About Urbania",
     vehicleType: "Force Urbania — 12 Seater",
     bookingType: "Force Urbania",

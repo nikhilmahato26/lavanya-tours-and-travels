@@ -111,6 +111,15 @@ export const Footer: React.FC = () => {
               </li>
               <li>
                 <button
+                  onClick={() => scrollToSection('payment-details')}
+                  className="hover:text-brand-gold transition-colors text-brand-gold font-semibold flex items-center gap-1.5"
+                >
+                  <span>Bank & QR Payment</span>
+                  <span className="text-[10px] bg-emerald-600 text-white font-bold px-1.5 py-0.5 rounded">UPI</span>
+                </button>
+              </li>
+              <li>
+                <button
                   onClick={() => scrollToSection('contact')}
                   className="hover:text-brand-gold transition-colors"
                 >
@@ -123,47 +132,52 @@ export const Footer: React.FC = () => {
           {/* Col 4: Our Vehicles */}
           <div>
             <h4 className="font-heading font-bold text-sm tracking-wider uppercase text-white mb-4 border-l-2 border-brand-blue pl-2.5">
-              Our Vehicles
+              Our Vehicles & Rates
             </h4>
-            <ul className="space-y-2 text-sm text-gray-300">
+            <ul className="space-y-2.5 text-xs text-gray-300">
               <li>
                 <button
-                  onClick={() => scrollToSection('fleet', { vehicle: 'Toyota Etios' })}
-                  className="hover:text-brand-gold transition-colors text-left"
+                  onClick={() => scrollToSection('fleet', { vehicle: 'Toyota Etios (Sedan)' })}
+                  className="hover:text-brand-gold transition-colors text-left flex items-center justify-between w-full gap-2"
                 >
-                  Toyota Etios
+                  <span>Sedan (Etios)</span>
+                  <span className="text-[11px] text-brand-gold font-bold">₹12/km • ₹3.3k/d</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('fleet', { vehicle: 'Toyota Innova' })}
-                  className="hover:text-brand-gold transition-colors text-left"
+                  className="hover:text-brand-gold transition-colors text-left flex items-center justify-between w-full gap-2"
                 >
-                  Toyota Innova
+                  <span>Toyota Innova</span>
+                  <span className="text-[11px] text-brand-gold font-bold">₹15/km • ₹4.9k/d</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('fleet', { vehicle: 'Toyota Innova Crysta' })}
-                  className="hover:text-brand-gold transition-colors text-left"
+                  className="hover:text-brand-gold transition-colors text-left flex items-center justify-between w-full gap-2"
                 >
-                  Toyota Innova Crysta
+                  <span>Innova Crysta</span>
+                  <span className="text-[11px] text-brand-gold font-bold">₹18/km • ₹5.2k/d</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('fleet', { vehicle: 'Tempo Traveller' })}
-                  className="hover:text-brand-gold transition-colors text-left"
+                  className="hover:text-brand-gold transition-colors text-left flex items-center justify-between w-full gap-2"
                 >
-                  Tempo Traveller
+                  <span>Tempo Traveller</span>
+                  <span className="text-[11px] text-brand-gold font-bold">₹22/km • ₹6.5k/d</span>
                 </button>
               </li>
               <li>
                 <button
                   onClick={() => scrollToSection('fleet', { vehicle: 'Force Urbania — 12 Seater' })}
-                  className="hover:text-brand-gold transition-colors text-left"
+                  className="hover:text-brand-gold transition-colors text-left flex items-center justify-between w-full gap-2"
                 >
-                  Force Urbania
+                  <span>Force Urbania</span>
+                  <span className="text-[11px] text-brand-gold font-bold">₹40/km • ₹12.7k/d</span>
                 </button>
               </li>
               <li>

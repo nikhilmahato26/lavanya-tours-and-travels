@@ -30,11 +30,22 @@ export const BUSINESS_CONFIG = {
     googleMaps: "https://www.google.com/maps/search/?api=1&query=LIG+143+2nd+Main+3rd+Cross+Gangothri+Layout+Mysore+Karnataka+India",
   },
 
+  bankDetails: {
+    accountHolder: "Puneeth My",
+    accountNumber: "41858157199",
+    ifsc: "SBIN0040248",
+    bankName: "State Bank of India",
+    branch: "Gangothri Layout, Mysore",
+    upiId: "punithmy6-4@okaxis",
+    qrImage: "/images/payment/upi-qr.jpg",
+  },
+
   disclaimers: {
     acPolicy: "AC and non-AC options are subject to vehicle availability. Please confirm your requirements while booking.",
     pricing: "Contact for Pricing",
     customTours: "CUSTOMIZED TOUR — ENQUIRE FOR DETAILS",
     availabilityNotice: "All vehicle bookings, tour itineraries, and final pricing are subject to vehicle availability and confirmation with our team.",
+    tollTaxPolicy: "Toll, parking, and interstate permit/tax extra on all vehicle hires.",
   },
 
   copyrightYear: 2026,

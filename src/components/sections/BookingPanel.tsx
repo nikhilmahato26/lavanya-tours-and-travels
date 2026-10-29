@@ -24,9 +24,13 @@ export const BookingPanel: React.FC = () => {
     const handlePrefill = (e: CustomEvent) => {
       const detail = e.detail;
       if (detail) {
+        let v = detail.vehicle;
+        if (v && (v === 'Toyota Etios' || v.includes('Etios') || v.includes('Sedan'))) {
+          v = 'Toyota Etios (Sedan)';
+        }
         setFormData((prev) => ({
           ...prev,
-          vehicle: detail.vehicle || prev.vehicle,
+          vehicle: v || prev.vehicle,
           destination: detail.destination || prev.destination,
         }));
       }
@@ -72,16 +76,16 @@ export const BookingPanel: React.FC = () => {
   };
 
   const vehicleOptions = [
-    "Toyota Etios",
-    "Toyota Innova",
-    "Toyota Innova Crysta",
-    "Tempo Traveller",
-    "Force Urbania — 12 Seater",
-    "Force Urbania — up to 16 Seater",
-    "21-Seater Bus",
-    "Bus — up to 49 Seats",
-    "Volvo Bus",
-    "Any Available Vehicle",
+    { value: "Toyota Etios (Sedan)", label: "Sedan (Etios) — ₹12/km | ₹3,300/day" },
+    { value: "Toyota Innova", label: "Toyota Innova — ₹15/km | ₹4,900/day" },
+    { value: "Toyota Innova Crysta", label: "Toyota Innova Crysta — ₹18/km | ₹5,200/day" },
+    { value: "Tempo Traveller", label: "Tempo Traveller — ₹22/km | ₹6,500/day" },
+    { value: "Force Urbania — 12 Seater", label: "Force Urbania (12 Seater) — ₹40/km | ₹12,700/day" },
+    { value: "Force Urbania — up to 16 Seater", label: "Force Urbania (16 Seater) — ₹40/km | ₹12,700/day" },
+    { value: "21-Seater Bus", label: "21-Seater Bus — On Enquiry" },
+    { value: "Bus — up to 49 Seats", label: "Bus (up to 49 Seats) — On Enquiry" },
+    { value: "Volvo Bus", label: "Volvo Bus — On Enquiry" },
+    { value: "Any Available Vehicle", label: "Any Available Vehicle" },
   ];
 
   return (
@@ -238,7 +242,7 @@ export const BookingPanel: React.FC = () => {
                   className="w-full pl-10 pr-3 py-3 rounded-xl border border-gray-200 focus:border-brand-blue text-sm focus:outline-none transition-colors bg-white appearance-none cursor-pointer"
                 >
                   {vehicleOptions.map((v) => (
-                    <option key={v} value={v}>{v}</option>
+                    <option key={v.value} value={v.value}>{v.label}</option>
                   ))}
                 </select>
               </div>
@@ -302,9 +306,21 @@ export const BookingPanel: React.FC = () => {
               <AlertCircle className="w-4 h-4 text-brand-blue flex-shrink-0" />
               <span>{BUSINESS_CONFIG.disclaimers.acPolicy}</span>
             </div>
-            <span className="text-[11px] text-gray-500 italic">
-              Availability & pricing require confirmation with our team.
-            </span>
+            <div className="flex items-center gap-3 text-[11px]">
+              <span className="font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
+                * Toll, parking & tax extra
+              </span>
+              <a
+                href="#payment-details"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('payment-details')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-brand-blue hover:text-brand-orange font-bold underline"
+              >
+                Bank & QR Details
+              </a>
+            </div>
           </div>
 
           {/* Submit Button */}

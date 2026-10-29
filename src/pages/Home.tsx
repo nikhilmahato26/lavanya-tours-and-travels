@@ -13,6 +13,7 @@ import { WhyChooseUs } from '../components/sections/WhyChooseUs';
 import { HowItWorks } from '../components/sections/HowItWorks';
 import { About } from '../components/sections/About';
 import { BookingForm } from '../components/sections/BookingForm';
+import { PaymentDetails } from '../components/sections/PaymentDetails';
 import { Contact } from '../components/sections/Contact';
 import { Footer } from '../components/layout/Footer';
 import { WhatsAppButton } from '../components/ui/WhatsAppButton';
@@ -64,7 +65,10 @@ export const Home: React.FC = () => {
         {/* 14. Complete Booking Form */}
         <BookingForm />
 
-        {/* 15. Contact and Location */}
+        {/* 15. Official Payment & Bank Details */}
+        <PaymentDetails />
+
+        {/* 16. Contact and Location */}
         <Contact />
       </main>
 

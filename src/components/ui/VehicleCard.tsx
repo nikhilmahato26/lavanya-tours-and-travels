@@ -15,10 +15,13 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
 
   const handleDirectWhatsApp = (e: React.MouseEvent) => {
     e.stopPropagation();
+    const rateText = vehicle.perDayPrice
+      ? `${vehicle.pricing} / ${vehicle.perDayPrice}`
+      : vehicle.pricing;
     const message = buildVehicleBookingMessage({
       name: '',
       phone: '',
-      vehicle: vehicle.name,
+      vehicle: `${vehicle.name} (${rateText} - Toll/Tax Extra)`,
       acPreference: 'AC Preferred',
     });
     openWhatsApp(message);
@@ -84,13 +87,27 @@ export const VehicleCard: React.FC<VehicleCardProps> = ({ vehicle }) => {
         </div>
 
         {/* Pricing and Action Buttons */}
-        <div className="pt-3 border-t border-gray-100 flex flex-col gap-2.5">
-          <div className="flex items-center justify-between">
+        <div className="pt-3 border-t border-gray-100 flex flex-col gap-2">
+          <div className="flex items-center justify-between gap-2 flex-wrap">
             <span className="text-[11px] uppercase tracking-wider text-gray-400 font-semibold">Pricing</span>
-            <span className="text-xs font-bold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-full">
-              {vehicle.pricing}
-            </span>
+            <div className="flex items-center gap-1.5 flex-wrap justify-end">
+              <span className="text-xs font-bold text-brand-navy bg-gray-100 px-2 py-0.5 rounded-md border border-gray-200">
+                {vehicle.pricing}
+              </span>
+              {vehicle.perDayPrice && (
+                <span className="text-xs font-extrabold text-brand-orange bg-brand-orange-light px-2.5 py-0.5 rounded-md border border-brand-orange/20">
+                  {vehicle.perDayPrice}
+                </span>
+              )}
+            </div>
           </div>
+
+          {vehicle.extraTerms && (
+            <div className="flex items-center justify-between text-[10px] text-gray-500 bg-amber-50/60 px-2.5 py-1 rounded-md border border-amber-200/60">
+              <span className="font-semibold text-amber-900">* {vehicle.extraTerms}</span>
+              <span className="text-gray-400">Driver included</span>
+            </div>
+          )}
 
           <div className="grid grid-cols-2 gap-2 pt-1">
             <button

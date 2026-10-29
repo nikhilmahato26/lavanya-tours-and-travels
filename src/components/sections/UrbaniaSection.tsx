@@ -12,7 +12,7 @@ export const UrbaniaSection: React.FC = () => {
     const msg = buildVehicleBookingMessage({
       name: '',
       phone: '',
-      vehicle: 'Force Urbania (12 to 16 seats)',
+      vehicle: 'Force Urbania (₹40/km or ₹12,700/day - Toll/Tax Extra)',
       passengers: '12-16',
       acPreference: 'AC Preferred',
     });
@@ -55,7 +55,7 @@ export const UrbaniaSection: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-3 text-sm text-brand-navy font-medium">
                   <Shield className="w-5 h-5 text-brand-navy flex-shrink-0" />
-                  <span>Contact for transparent rental pricing & route discussions</span>
+                  <span>Rental rate: ₹40 / km or ₹12,700 / day (toll, parking & tax extra)</span>
                 </div>
               </div>
 
@@ -91,8 +91,8 @@ export const UrbaniaSection: React.FC = () => {
                   <div className="absolute top-3 left-3 bg-brand-navy text-white text-[11px] font-bold px-3 py-1 rounded-md">
                     12 to 16 Seats
                   </div>
-                  <div className="absolute bottom-3 right-3 bg-brand-orange text-white text-[11px] font-bold px-3 py-1 rounded-md">
-                    Contact for Pricing
+                  <div className="absolute bottom-3 right-3 bg-brand-orange text-white text-xs font-bold px-3 py-1 rounded-md shadow-md">
+                    ₹40/km • ₹12,700/day
                   </div>
                 </div>
 

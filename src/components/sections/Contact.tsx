@@ -1,5 +1,5 @@
 import React from 'react';
-import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Clock, ShieldCheck } from 'lucide-react';
+import { MapPin, Phone, Mail, MessageCircle, ExternalLink, Clock, ShieldCheck, Building2 } from 'lucide-react';
 import { BUSINESS_CONFIG } from '../../config/business';
 
 export const Contact: React.FC = () => {
@@ -121,6 +121,33 @@ export const Contact: React.FC = () => {
               >
                 <MessageCircle className="w-4 h-4 fill-white" />
                 <span>Chat On WhatsApp</span>
+              </a>
+            </div>
+
+            {/* Official Payment & Bank Banner */}
+            <div className="bg-gradient-to-r from-brand-navy to-brand-royal text-white rounded-2xl p-4 sm:p-5 shadow-md flex items-center justify-between gap-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+                  <Building2 className="w-5 h-5 text-brand-gold" />
+                </div>
+                <div>
+                  <h4 className="font-heading font-extrabold text-sm text-white">
+                    SBI Bank & UPI QR Payment
+                  </h4>
+                  <p className="text-[11px] text-gray-300">
+                    A/C: {BUSINESS_CONFIG.bankDetails.accountNumber} • Puneeth My
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#payment-details"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('payment-details')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="px-3.5 py-2 rounded-xl bg-brand-orange hover:bg-brand-gold text-white font-bold text-xs uppercase tracking-wider transition-all whitespace-nowrap shadow-sm"
+              >
+                View QR & Pay
               </a>
             </div>
           </div>
