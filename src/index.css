@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Manrope', 'Montserrat', sans-serif;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #0C5BAA;
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EC853B;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-dark {
+  background: rgba(16, 43, 70, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Road dash motif inspired by the LTT logo */
+.road-border {
+  border-image: repeating-linear-gradient(90deg, #0C5BAA 0, #0C5BAA 12px, transparent 12px, transparent 18px) 2;
+}
+
+/* Subtle glow */
+.glow-blue {
+  box-shadow: 0 0 25px rgba(12, 91, 170, 0.25);
+}
+
+.glow-orange {
+  box-shadow: 0 0 25px rgba(236, 133, 59, 0.35);
+}
